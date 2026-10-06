@@ -1,0 +1,83 @@
+﻿<Page x:Class="ChetverochkaKassa.Pages.SalesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ChetverochkaKassa.Pages"
+      mc:Ignorable="d" 
+     d:DesignHeight="800" d:DesignWidth="1200"
+      Title="Оформление продаж"   >
+
+    <Grid>
+       
+        <StackPanel >
+            <StackPanel >
+                <TextBlock>Оформление продаж</TextBlock>
+                <TextBox x:Name="searchText" TextChanged="searchText_TextChanged" Margin="10" Height="30"></TextBox>
+
+                <ScrollViewer Height="130" VerticalScrollBarVisibility="Auto" Margin="10" >
+                    <DataGrid x:Name="gridProducts"
+          IsReadOnly="True"
+          AutoGenerateColumns="True"
+          MouseDoubleClick="gridProducts_MouseDoubleClick"
+          >
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Название" Binding="{Binding Name}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Цена" Binding="{Binding Price}" ></DataGridTextColumn>
+                            <DataGridTextColumn Header="Остаток" Binding="{Binding Stock}"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                </ScrollViewer>
+
+            </StackPanel>
+
+            <StackPanel Margin="10" >
+                <TextBlock>Корзина</TextBlock>
+                <DataGrid x:Name="korzinProduct"
+                         AutoGenerateColumns="True"
+                          >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Товар" Binding="{Binding ProductName}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Цена" Binding="{Binding Price}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Количество" Binding="{Binding CountProduct}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Сумма" Binding="{Binding Sum}"></DataGridTextColumn>
+                    </DataGrid.Columns>
+
+                </DataGrid>
+                <StackPanel Orientation="Horizontal">
+                    <Button Name="plus" Click="plus_Click" Height="20" Width="20">+</Button>
+                    <Button x:Name="minus" Click="minus_Click"  Height="20" Width="20">-</Button>
+
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>Клиент:</TextBlock>
+                    <TextBlock x:Name="NameClient" Margin="10, 0"></TextBlock>
+                    <TextBlock x:Name="Skidka" Margin="10, 0"></TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" >
+                    <TextBlock > Телефон:</TextBlock>
+                    <TextBox x:Name="PhoneTb" Width="120" Margin="10,0"></TextBox>
+                    <Button x:Name="SearchClient" Click="SearchClient_Click"  Margin="10, 0">Найти</Button>
+                    <Button x:Name="regist" Click="regist_Click" Margin="10, 0" >Зарегестрироваться</Button>
+                </StackPanel>
+
+  
+                        <TextBlock x:Name="totalSum" Margin="10"></TextBlock>
+           
+                
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <Button Click="Delit" Width="120" Height="35" Margin="10, 0">Удалить</Button>
+                <Button Width="120" Height="35" Click="AllDellit" Margin="10, 0" >Очистить корзину</Button>
+                <Button Click="CheckShow" Margin="10, 0">Оплатить</Button>
+                <Button Click="goBack_Click_1" Margin="10, 0" >Назад</Button>
+            </StackPanel>
+            <TextBlock Name="checkTb"></TextBlock>
+
+        </StackPanel>
+       
+    </Grid>
+</Page>

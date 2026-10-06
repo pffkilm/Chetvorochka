@@ -1,0 +1,27 @@
+﻿<Window x:Class="ChetverochkaKassa.PaymentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ChetverochkaKassa"
+        mc:Ignorable="d"
+        Title="PaymentWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel Margin="10" >
+            <StackPanel Orientation="Horizontal">
+                <TextBlock>К оплате: </TextBlock>
+                <TextBlock x:Name="sumPay"></TextBlock>
+            </StackPanel>
+            <TextBlock>Способ оплаты:</TextBlock>
+            
+            <RadioButton Name="cashRadio" IsChecked="True">Наличными</RadioButton>
+            <RadioButton Name="cardRadio">Банковской картой</RadioButton>
+            <ComboBox x:Name="cashierCombo" FontSize="14" Height="30"/>
+            <TextBlock>Получено от покупателя:</TextBlock>
+            <TextBox Name="paymentTb" Width="200" HorizontalAlignment="Left" Height="30" ></TextBox>
+            <TextBlock>Сдача:</TextBlock>
+            <TextBlock Name="changeTb"></TextBlock>
+            <Button Name="btnPayment" Click="btnPayment_Click" Width="200" Height="30" HorizontalAlignment="Left"> Подтвердить оплату</Button>
+        </StackPanel>
+    </Grid>
+</Window>

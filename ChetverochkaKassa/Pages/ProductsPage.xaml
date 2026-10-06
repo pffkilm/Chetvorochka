@@ -1,0 +1,59 @@
+﻿<Page x:Class="ChetverochkaKassa.Pages.ProductsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ChetverochkaKassa.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ProductsPage"
+       >
+
+    <Grid>
+        <StackPanel  Margin="10, 0">
+            <DataGrid Name="productDg"  AutoGenerateColumns="False"  Width="600" HorizontalAlignment="Left"  CanUserAddRows="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Название" Binding="{Binding Name}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Цена" Binding="{Binding Price}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Остаток" Binding="{Binding Stock}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Штрихкод"  IsReadOnly="True" Binding="{Binding Barcode}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Категория"   IsReadOnly="True" Binding="{Binding CategoryName}"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <StackPanel Margin="10, 0">
+                <TextBlock>Поиск товара</TextBlock>
+                <TextBox x:Name="searchProduct"  Width="200" Height="30" HorizontalAlignment="Left" TextChanged="searchProduct_TextChanged"></TextBox>
+
+                <ComboBox Name="categoryCombo" SelectionChanged="categoryCombo_SelectionChanged"></ComboBox>
+                <TextBlock>Добавление товара:</TextBlock>
+                <StackPanel Orientation="Horizontal" >
+                    <TextBlock>Продукт:</TextBlock>
+                    <TextBox x:Name="nameTb" Margin="10, 0" Width="200" Height="20"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>Цена:</TextBlock>
+                    <TextBox x:Name="priceTb" Margin="10, 0" Width="200" Height="20"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>Категория:</TextBlock>
+                    <ComboBox Name="addCategory" ></ComboBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>Штрихкод:</TextBlock>
+                    <TextBox x:Name="barcodeTb" Margin="10, 0" Width="200" Height="20"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>Начальный остаток:</TextBlock>
+                    <TextBox x:Name="stockTb" Margin="10, 0" Width="200" Height="20"></TextBox>
+                </StackPanel> 
+                <Button x:Name="AddProduct" Click="AddProduct_Click" Width="200" Height="30" HorizontalAlignment="Left">Добавить товар</Button>
+                <Button x:Name="btnRemove" Click="btnRemove_Click"  Width="200" Height="30" HorizontalAlignment="Left">Снять с продажи</Button>
+                <Button x:Name="saveProduct" Click="saveProduct_Click">Сохранить изменения</Button>
+                <Button Click="goBack_Click_1"  Width="200" Height="30" HorizontalAlignment="Left">Назад</Button>
+            </StackPanel>
+
+           
+        </StackPanel>
+       
+    </Grid>
+</Page>

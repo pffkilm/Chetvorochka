@@ -1,0 +1,62 @@
+﻿<Page x:Class="ChetverochkaKassa.Pages.UsersPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ChetverochkaKassa.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="UsersPage">
+
+    <Grid>
+        <StackPanel>
+            <DataGrid Name="usersDg" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ФИО" Binding="{Binding FullName}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Логин" Binding="{Binding Login}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Роль" Binding="{Binding Roles.Name}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Заблокирован" Binding="{Binding IsBlocked}"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <TextBlock>Создание пользователя:</TextBlock>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="ФИО:" />
+                <TextBox x:Name="fullNameTb" Width="200"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Логин:"/>
+                <TextBox x:Name="loginTb" Width="200"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Пароль:" />
+                <PasswordBox x:Name="passwordPb" Width="200"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Роль:" />
+                <ComboBox x:Name="roleCombo" Width="200"/>
+                
+            </StackPanel>
+            
+            <TextBlock Text="Новый пароль (для сброса):"/>
+            <PasswordBox x:Name="resetPasswordPb"/>
+            <StackPanel>
+                
+                <Button x:Name="addUser" Click="addUser_Click">
+                    Добавить</Button>
+                <Button x:Name="change" Click="change_Click"></Button>
+                <Button x:Name="reset" Click="reset_Click"> Сброс пароля</Button>
+                <Button x:Name="block" Click="block_Click">Блокировать</Button>
+                <Button Click="goBack_Click_1">Назад</Button>
+            </StackPanel>
+
+            
+        </StackPanel>
+       
+
+    </Grid>
+</Page>
